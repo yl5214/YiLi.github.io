@@ -1,0 +1,19 @@
+---
+title: "Introductory"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: paper
+
+---
+
+# Who am I
+
+This is Yi Li, a current graduate student from [Columbia University Mailman School Of Public Health](https://www.publichealth.columbia.edu/), pursuiting a degree in Master of Public Health with a focus on epidemiology and a biostatistics certificate. The skillset and my [personal experiences](Resume.html) provide me a strong insight in public health and data-driven research.
+
+# What I Offer:
+
+If you have any questions, need assistance, or would like to discuss any specific topics related to your studies or public health in general, please feel free to ask. I'm here to help and provide information or insights to support your academic journey and your interests in epidemiology and biostatistics.
+
+

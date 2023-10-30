@@ -1,0 +1,36 @@
+---
+title: "Resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# Master School
+The Columbia University Mailman School of Public Health, commonly referred to as the Mailman School, is a prestigious and renowned institution dedicated to advancing public health research, education, and practice. Located in New York City, it is one of the leading schools of public health in the United States and globally. 
+![](images/columbia university.jpeg)
+
+# Courses taken
+**Applied Regression I** :
+This course will provide an introduction to the basics of regression analysis. The class will proceed systematically from the examination of the distributional qualities of the measures of interest, to assessing the appropriateness of the assumption of linearity, to issues related to variable inclusion, model fit, interpretation, and regression diagnostics. We will primarily use scalar notation (i.e. we will use limited matrix notation, and will only briefly present the use of matrix algebra).
+
+**Analysis of Categorical Data** :
+A comprehensive overview of methods of analysis for binary and other discrete response data, with applications to epidemiological and clinical studies. It is a second level course that presumes some knowledge of applied statistics and epidemiology. Topics discussed include 2 Ã— 2 tables, m Ã— 2 tables, tests of independence, measures of association, power and sample size determination, stratification and matching in design and analysis, interrater agreement, logistic regression analysis.
+
+**P8105** :
+Contemporary biostatistics and data analysis depends on the mastery of tools for computation, visualization, dissemination, and reproducibility in addition to proficiency in traditional statistical techniques. The goal of this course is to provide training in the elements of a complete pipeline for data analysis. It is targeted to MS, MPH, and PhD students with some data analysis experience.
+
+**Relational Databases and SQL programming** :
+You will learn two aspects of the SQL programming language: 1) the data manipulation language (DML), which allows you to retrieve data from and populate data into database tables (e.g., SELECT, INSERT INTO, DELETE, UPDATE, etc.), and 2) the data definition language (DDL), which allows you to create and modify tables in a database (e.g., CREATE, ALTER, DROP, etc.). You will additionally learn how to optimize SQL queries for best performance, use advanced SQL functions, and utilize SQL within common statistical software programs: R and SAS.
+
+# Professional Experiences:
+**Diet & Health Analysis**
+
+* Worked directly with Professor Kristen Schreck to research the most nutritional daily diet by recording and analyzing people’s diets from the USDA - -MyPlate platform.
+* Evaluated the strengths and weaknesses of various food and beverage intakes from multiple perspectives.
+*	Brainstormed solutions to bring communities more nutritionally balanced foods.
+*	Reviewed all the research references and drafted a 20-page report per our analytical results. 
+
+
+
