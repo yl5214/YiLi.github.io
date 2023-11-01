@@ -1,5 +1,5 @@
 ---
-title: "Introductory"
+title: "Dashboard"
 output: 
   html_document:
     toc: true
