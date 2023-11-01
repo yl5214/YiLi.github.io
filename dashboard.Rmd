@@ -40,25 +40,30 @@ instacart_cat |>
           type ='bar', made= 'markers', alpha=0.5)
 ```
 
-Column {data-width=350}
+Column {data-width=650}
 -----------------------------------------------------------------------
 
 ### Chart B
 
 ```{r}
-nyc_airbnb |> 
-  mutate(neighbourhood = fct_reorder(neighbourhood, price)) |> 
-  plot_ly(y = ~price, color = ~neighbourhood, type = "box", colors = "viridis")
+instacart |> 
+  filter(aisle %in% c('baking ingredients', 'refrigerated', 'fresh vegetables') )|>
+  group_by(aisle) |> 
+  count(product_name) |> 
+  mutate(rank = min_rank(desc(n))) |> 
+  filter(rank < 10) |> 
+  mutate(product_name= fct_reorder (product_name, rank)) |> 
+  plot_ly(x= ~product_name, y = ~n, color = ~product_name, type = "scatter", colors = "viridis")
 ```
 
 ### Chart C
 
 ```{r}
-nyc_airbnb |> 
-  count(neighbourhood) |> 
-  mutate(neighbourhood = fct_reorder(neighbourhood, n)) |> 
-  plot_ly(
-    x = ~neighbourhood, y = ~n, color = ~neighbourhood,
-    type = "scatter", colors = "viridis")
+instacart |>
+  filter(product_name %in% c ("Bulgarian Yogurt","	
+Cucumber Kirby","Bag of Organic Bananas","Spring Water","Asparagus","Shelled Pistachios")) |>
+  group_by(product_name, order_dow) |>
+  summarize(mean_hour = mean(order_hour_of_day))|>
+  plot_ly( y =~mean_hour, color = ~product_name,type = "box", colors = "viridis")
 ```
 
