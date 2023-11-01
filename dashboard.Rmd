@@ -13,35 +13,31 @@ library(tidyverse)
 library(plotly)
 
 library(p8105.datasets)
+
+data(rest_inspec)
+data(instacart)
 ```
 
 ```{r}
-data('nyc_airbnb')
+data("instacart")
 
-nyc_airbnb = 
-  nyc_airbnb |> 
-  mutate(stars = review_scores_location / 2) |> 
-  select(borough = neighbourhood_group, 
-         neighbourhood, stars, price, room_type, lat, long) |> 
-  drop_na(stars) |> 
-  filter(
-    borough == "Manhattan",
-    room_type == "Entire home/apt",
-    price %in% 100:500
-  )
+instacart_cat = 
+  instacart |> 
+  count(aisle) |> 
+  filter(n > 10000) |> 
+  mutate(aisle = fct_reorder(aisle, n))
 ```
 
 
-Column {data-width=650}
+Column {data-width=350}
 -----------------------------------------------------------------------
 
 ### Chart A
 
 ```{r}
-nyc_airbnb |> 
-  mutate(text_label =str_c ('Price: $', price, '\nRating:', stars)) |> 
-  plot_ly(x= ~lat, y= ~long, color= ~price, text=~text_label,
-          type ='scatter', made= 'markers', alpha=0.5)
+instacart_cat |> 
+  plot_ly(x= ~aisle, y= ~n, color= ~aisle,
+          type ='bar', made= 'markers', alpha=0.5)
 ```
 
 Column {data-width=350}
@@ -63,6 +59,6 @@ nyc_airbnb |>
   mutate(neighbourhood = fct_reorder(neighbourhood, n)) |> 
   plot_ly(
     x = ~neighbourhood, y = ~n, color = ~neighbourhood,
-    type = "bar", colors = "viridis")
+    type = "scatter", colors = "viridis")
 ```
 
