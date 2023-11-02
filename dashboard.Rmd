@@ -13,31 +13,27 @@ library(tidyverse)
 library(plotly)
 
 library(p8105.datasets)
-
-data(rest_inspec)
-data(instacart)
 ```
 
 ```{r}
-data("instacart")
-
-instacart_cat = 
-  instacart |> 
-  count(aisle) |> 
-  filter(n > 10000) |> 
-  mutate(aisle = fct_reorder(aisle, n))
+weather_df = 
+ny_noaa|>
+drop_na(prcp, snow, snwd, tmax,tmin) |> 
+  filter (year(date)== '2010',
+          prcp>500) |> 
+  mutate(month= month(date))
+  
 ```
 
 
-Column {data-width=650}
+Column {data-width=350}
 -----------------------------------------------------------------------
 
 ### Chart A
 
 ```{r}
-instacart_cat |> 
-  plot_ly(x= ~aisle, y= ~n, color= ~aisle,
-          type ='bar', made= 'markers', alpha=0.5)
+weather_df |> 
+  plot_ly(x = ~prcp, type = "histogram", marker = list(color = "blue"))|>   layout(title = 'Histogram for PRCP in year 2020',xaxis = list(title = "PRCP"), yaxis = list(title = "Frequency"))
 ```
 
 Column {data-width=650}
@@ -46,24 +42,18 @@ Column {data-width=650}
 ### Chart B
 
 ```{r}
-instacart |> 
-  filter(aisle %in% c('baking ingredients', 'refrigerated', 'fresh vegetables') )|>
-  group_by(aisle) |> 
-  count(product_name) |> 
-  mutate(rank = min_rank(desc(n))) |> 
-  filter(rank < 10) |> 
-  mutate(product_name= fct_reorder (product_name, rank)) |> 
-  plot_ly(x= ~product_name, y = ~n, color = ~product_name, type = "scatter", colors = "viridis")
+weather_df |> 
+  plot_ly(x= ~tmin, y = ~tmax, color = ~id, type = "scatter", colors = "viridis") |> 
+    layout(title = 'Scatter plot for tmin vs tmax in 2020',xaxis = list(title = "tmin"), yaxis = list(title = "tmax"))
 ```
 
 ### Chart C
 
 ```{r}
-instacart |>
-  filter(product_name %in% c ("Bulgarian Yogurt","	
-Cucumber Kirby","Bag of Organic Bananas","Spring Water","Asparagus","Shelled Pistachios")) |>
-  group_by(product_name, order_dow) |>
-  summarize(mean_hour = mean(order_hour_of_day))|>
-  plot_ly( y =~mean_hour, color = ~product_name,type = "box", colors = "viridis")
+weather_df %>%
+  mutate(tmax = as.numeric(tmax)) %>%
+  group_by(id) %>%
+  plot_ly( y = ~tmax, color=~id, type = "box", colors = "viridis") |> 
+    layout(title = 'Bar Box for tmax in each place',xaxis = list(title = "id"), yaxis = list(title = "tmax"))
 ```
 
