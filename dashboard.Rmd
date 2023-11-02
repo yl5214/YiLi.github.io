@@ -50,9 +50,9 @@ weather_df |>
 ### Chart C
 
 ```{r}
-weather_df %>%
-  mutate(tmax = as.numeric(tmax)) %>%
-  group_by(id) %>%
+weather_df |> 
+  mutate(tmax = as.numeric(tmax)) |> 
+  group_by(id) |> 
   plot_ly( y = ~tmax, color=~id, type = "box", colors = "viridis") |> 
     layout(title = 'Bar Box for tmax in each place',xaxis = list(title = "id"), yaxis = list(title = "tmax"))
 ```
