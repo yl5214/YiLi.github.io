@@ -29,7 +29,7 @@ instacart_cat =
 ```
 
 
-Column {data-width=350}
+Column {data-width=650}
 -----------------------------------------------------------------------
 
 ### Chart A
